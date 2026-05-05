@@ -15,7 +15,8 @@
     "action": {
         "default_title": "Clique para abrir o painel",
         "default_popup": "index.html",
-        "default_icon": "images/gato.png"
+        "default_icon": "images/gato.png",
+        "options_page": "index.html"
     }
 }
 
