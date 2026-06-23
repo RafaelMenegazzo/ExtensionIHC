@@ -1,0 +1,39 @@
+body{
+    background-color: #3186ccb9;
+    text-align: center;
+}
+
+ol{
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+
+.btn-primary{
+    
+    background-color: #008cffaf;
+    padding-bottom: 200px;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 100%;
+    border-style:solid;
+    cursor: pointer;
+}
+
+.status-granted{
+    border-radius: 10px;
+    background-color: #2bc437be;
+
+}
+
+.status-denied{
+    height: 50px;
+    border-radius: 5px;
+    background-color: #f00808b4;
+}
+
+.status-steps{
+    border-radius: 5px;
+    background-color: #ffffffbd;
+    
+}

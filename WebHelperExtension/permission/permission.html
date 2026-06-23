@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebHelper Permission</title>
+    <link rel="stylesheet" href="permission.css">
+</head>
+<body>
+
+    <div class="Background">
+        <h1>Web Helper precisa de permissão para acessar o microfone</h1>
+        <p>para iniciar o processo de permissão, aperte o botão abaixo</p>
+        <div>
+            <button id="btnRequestPermission" class="btn-primary">
+                permitir
+            </button> 
+        </div>
+        <div id="btnGranted" class="status status-granted" style="display:block;">
+            Microfone Permitido com sucesso!
+            <p>Já pode fechar essa tela e utilizar na barra lateral</p>
+        </div>
+        <div id="btnDenied" class="status status-denied" style="display:block">
+            Microfone Negado. Por favor, permita o microfone para utiliza a extensão
+        </div>
+        <div id="steps" class="status status-steps" style="display:block">
+            <ol>
+                <li>Clique no botão ao centro da tela</ul>
+                <li>Ao clicar, um botão do chrome aparecerá com opções</ul>
+                <li>Clique em "Permitir ao acessar o site"</ul>
+            </ol>
+        </div>
+    </div>
+
+    
+</body>
+<script src="permission.js"></script>
+</html>

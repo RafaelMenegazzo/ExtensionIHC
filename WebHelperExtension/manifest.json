@@ -1,23 +1,15 @@
 {
-    "name": "WebHelper",
-    "description": "It was developed to help people with desabilities or people who has problems to deal with browsers",
-    "version": "1.0",
-    "side_panel": {
-        "default_path": "sidebar.html"
-    },
-    "permissions": ["tabCapture", "activeTab", "scripting","sidePanel"],
-    "host_permissions": ["<all_urls>"],
+    "name": "Teste de aúdio",
+    "version": "1.0.0",
+    "description": "teste",
     "manifest_version": 3,
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": ["js/service-worker.js"]
-    }],
-    "action": {
-        "default_title": "Clique para abrir o painel",
-        "default_popup": "index.html",
-        "default_icon": "images/gato.png",
-        "options_page": "index.html"
+    "permissions": ["tabs", "activeTab", "scripting", "sidePanel"],
+
+    "background": {
+        "service_worker": "background/service-worker.js"
+    },
+    
+    "side_panel": {
+        "default_path": "sidebar/index.html"
     }
 }
-
-
