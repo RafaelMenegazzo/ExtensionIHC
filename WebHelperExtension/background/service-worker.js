@@ -10,4 +10,8 @@ chrome.runtime.onMessage.addListener((message,sender,senderResponse) =>{
             active: true
         });
     }
+
+    if(message.type === 'PERMISSION_GRANTED'){
+        chrome.runtime.sendMessage({type: 'PERMISSION_GRANTED'})
+    }
 })
