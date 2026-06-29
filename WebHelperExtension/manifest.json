@@ -1,15 +1,24 @@
 {
-    "name": "Teste de aúdio",
+    "name": "WebHelper - Controle de Navegador por Voz",
     "version": "1.0.0",
-    "description": "teste",
+    "description": "Extensão que permite controlar o navegador usando comandos de voz interpretados por IA",
     "manifest_version": 3,
-    "permissions": ["tabs", "activeTab", "scripting", "sidePanel"],
+    "permissions": ["tabs", "activeTab", "scripting", "sidePanel", "storage"],
+    "host_permissions": ["<all_urls>"],
 
     "background": {
         "service_worker": "background/service-worker.js"
     },
-    
+
+    "action": {
+        "default_title": "Abrir WebHelper"
+    },
+
     "side_panel": {
         "default_path": "sidebar/index.html"
+    },
+
+    "icons": {
+        "128": "icons/mic.png"
     }
 }

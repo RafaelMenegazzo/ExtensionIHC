@@ -1,38 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebHelper Permission</title>
-    <link rel="stylesheet" href="permission.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebHelper - Microfone</title>
+  <link rel="stylesheet" href="permission.css">
 </head>
 <body>
+  <div class="card">
 
-    <div class="Background">
-        <h1>Web Helper precisa de permissão para acessar o microfone</h1>
-        <p>para iniciar o processo de permissão, aperte o botão abaixo</p>
-        <div>
-            <button id="btnRequestPermission" class="btn-primary">
-                permitir
-            </button> 
-        </div>
-        <div id="btnGranted" class="status status-granted" style="display:none;">
-            Microfone Permitido com sucesso!
-            <p>Já pode fechar essa tela e utilizar na barra lateral</p>
-        </div>
-        <div id="btnDenied" class="status status-denied" style="display:none">
-            Microfone Negado. Por favor, permita o microfone para utiliza a extensão
-        </div>
-        <div id="steps" class="status status-steps" style="display:block">
-            <ol>
-                <li>Clique no botão ao centro da tela</ul>
-                <li>Ao clicar, um botão do chrome aparecerá com opções</ul>
-                <li>Clique em "Permitir ao acessar o site"</ul>
-            </ol>
-        </div>
+    <!-- ESTADO 1: pedindo permissão -->
+    <div id="viewRequest" class="view">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+        </svg>
+      </div>
+      <h1>Permissão de microfone</h1>
+      <p class="subtitle">O WebHelper precisa acessar seu microfone para entender seus comandos de voz.</p>
+      <button id="btnRequestPermission" class="btn-primary">Permitir microfone</button>
+      <div class="status status-steps visible">
+        <span class="status-title">Como funciona</span>
+        <ol>
+          <li>Clique no botão acima</li>
+          <li>O Chrome vai mostrar um aviso pedindo permissão</li>
+          <li>Clique em "Permitir" nesse aviso</li>
+        </ol>
+      </div>
+      <div id="btnDenied" class="status status-denied">
+        <span class="status-title">✕ Microfone bloqueado</span>
+        <p>O navegador negou o acesso. Clique no ícone de cadeado/site na barra de endereço, libere o microfone manualmente e tente novamente.</p>
+      </div>
     </div>
 
-    
+    <!-- ESTADO 2: escutando / processando comando -->
+    <div id="viewListen" class="view" style="display:none;">
+      <div class="icon-wrap" id="iconWrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+        </svg>
+      </div>
+      <h1 id="statusTitle">Ouvindo...</h1>
+      <p class="subtitle" id="transcriptText">Fale seu comando</p>
+      <div class="status status-steps visible" id="aiStatus" style="display:none;">
+        <span class="status-title" id="aiStatusLabel">IA</span>
+        <p id="aiStatusText"></p>
+      </div>
+      <p class="hint-close" id="hintClose">Esta aba fecha automaticamente após a ação.</p>
+    </div>
+
+  </div>
+
+  <script src="permission.js" type="module"></script>
 </body>
-<script src="permission.js"></script>
 </html>
