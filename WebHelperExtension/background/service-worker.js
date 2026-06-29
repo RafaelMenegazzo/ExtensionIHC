@@ -49,6 +49,12 @@ async function executeAction(action, param) {
       return { mensagem: `Buscando por "${param}"`, tabId: novaAba.id };
     }
 
+    case "BUSCAR_NO_YOUTUBE": {
+      const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(param)}`;
+      const novaAba = await chrome.tabs.create({ url, active: true });
+      return { mensagem: `Buscando "${param}" no YouTube`, tabId: novaAba.id };
+    }
+
     case "NOVA_ABA": {
       const novaAba = await chrome.tabs.create({ active: true });
       return { mensagem: "Nova aba aberta", tabId: novaAba.id };

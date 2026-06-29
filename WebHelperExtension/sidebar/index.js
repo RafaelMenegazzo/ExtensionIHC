@@ -47,13 +47,20 @@ chrome.runtime.onMessage.addListener((message) => {
       mostrarMensagemIA(pergunta, true);
       break;
 
+    case "ORIENTACAO":
+      statusDot.classList.remove("listening", "error");
+      statusDot.classList.add("active");
+      statusText.textContent = "ORIENTANDO";
+      hintText.textContent = "Siga o próximo passo";
+      mostrarMensagemIA(message.payload.texto, false);
+      break;
+
     case "SUCESSO":
       statusDot.classList.remove("listening", "error");
       statusDot.classList.add("active");
       statusText.textContent = "CONCLUÍDO";
       hintText.textContent = `✓ ${mensagem}`;
       esconderMensagemIA();
-      setTimeout(resetarStatus, 3000);
       break;
 
     case "ERRO":
